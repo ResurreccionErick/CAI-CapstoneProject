@@ -1,28 +1,56 @@
 package com.example.cai;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.view.MenuItem;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class CategoriesSubjectActivity extends AppCompatActivity {
 
-    private Button btnTakeAQuiz;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories_subject);
+        Toolbar toolbar = findViewById(R.id.subjToolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Subject");
 
-        btnTakeAQuiz = findViewById(R.id.btnMainTakeAQuiz);
 
-        btnTakeAQuiz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), CategoriesSubjectActivity.class));
-            }
-        });
+        recyclerView = findViewById(R.id.subjRecyclerView);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+
+        recyclerView.setLayoutManager(layoutManager);
+
+        List<CategoriesSubjectModel> list = new ArrayList<>();
+        list.add(new CategoriesSubjectModel("", "Numeracy"));
+        list.add(new CategoriesSubjectModel("", "Language Literacy"));
+        list.add(new CategoriesSubjectModel("", "Filipino"));
+        list.add(new CategoriesSubjectModel("", "Reading"));
+
+
+        CategoriesSubjectAdapter adapter = new CategoriesSubjectAdapter(list);
+        recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getGroupId() == android.R.id.home){
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

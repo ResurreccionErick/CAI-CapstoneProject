@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CAI">
         <activity
+            android:name=".SetsSubjectActivity"
+            android:exported="true" />
+        <activity
             android:name=".CategoriesSubjectActivity"
             android:exported="true" />
         <activity

@@ -47,7 +47,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnMainTakeAQuiz"
+        android:id="@+id/btnMainListen"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
@@ -64,7 +64,7 @@
         android:layout_marginBottom="24dp"
         android:background="@drawable/rounder_corner"
         android:text="Read"
-        app:layout_constraintBottom_toTopOf="@+id/btnMainTakeAQuiz"
-        app:layout_constraintEnd_toEndOf="@+id/btnMainTakeAQuiz"
-        app:layout_constraintStart_toStartOf="@+id/btnMainTakeAQuiz" />
+        app:layout_constraintBottom_toTopOf="@+id/btnMainListen"
+        app:layout_constraintEnd_toEndOf="@+id/btnMainListen"
+        app:layout_constraintStart_toStartOf="@+id/btnMainListen" />
 </androidx.constraintlayout.widget.ConstraintLayout>
